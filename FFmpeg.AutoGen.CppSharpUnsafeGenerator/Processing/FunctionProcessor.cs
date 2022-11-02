@@ -10,16 +10,9 @@ namespace FFmpeg.AutoGen.CppSharpUnsafeGenerator.Processing;
 
 internal class FunctionProcessor
 {
-    private const string ReturnMarshalAsConstCharPtr = "[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))]";
+    private const string ReturnMarshalAsConstCharPtr = " [return: MarshalAs(UnmanagedType.LPUTF8Str)]";
 
-    private const string MarshalAsUTF8Macros =
-        "    \r\n" +
-        "    #if NETSTANDARD2_1_OR_GREATER\r\n" +
-        "    [MarshalAs(UnmanagedType.LPUTF8Str)]\r\n" +
-        "    #else\r\n" +
-        "    [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(UTF8Marshaler))]\r\n" +
-        "    #endif\r\n" +
-        "   ";
+    private const string MarshalAsUTF8Macros = "[MarshalAs(UnmanagedType.LPUTF8Str)]";
 
 
     private readonly ProcessingContext _context;
