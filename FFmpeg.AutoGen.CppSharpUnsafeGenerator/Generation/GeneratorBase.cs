@@ -52,6 +52,11 @@ internal abstract class GeneratorBase : IDisposable
 
     public virtual void Generate()
     {
+        if (!string.IsNullOrEmpty(Context.FileHeader))
+        {
+            WriteLine(Context.FileHeader);
+        }
+
         var usings = Usings().ToList();
         usings.ForEach(ns => WriteLine($"using {ns};"));
         if (usings.Count > 0) WriteLine();

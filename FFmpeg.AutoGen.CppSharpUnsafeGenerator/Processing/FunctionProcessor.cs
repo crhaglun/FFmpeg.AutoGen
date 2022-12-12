@@ -10,7 +10,7 @@ namespace FFmpeg.AutoGen.CppSharpUnsafeGenerator.Processing;
 
 internal class FunctionProcessor
 {
-    private const string ReturnMarshalAsConstCharPtr = " [return: MarshalAs(UnmanagedType.LPUTF8Str)]";
+    private const string ReturnMarshalAsConstCharPtr = "[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))]";
 
     private const string MarshalAsUTF8Macros = "[MarshalAs(UnmanagedType.LPUTF8Str)]";
 

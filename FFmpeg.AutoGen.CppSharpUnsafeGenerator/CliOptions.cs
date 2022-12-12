@@ -59,6 +59,24 @@ public class CliOptions
         HelpText = "Print details during execution.")]
     public bool Verbose { get; set; }
 
+    [Option("ffmpeg-moniker",
+        Default = "ffmpeg",
+        Required = false,
+        HelpText = "FFmpeg project moniker. Default is 'ffmpeg'")]
+    public string FFMoniker { get; set; }
+
+    [Option("ffmpeg-version",
+        Default = "1.0",
+        Required = false,
+        HelpText = "FFmpeg version number. Default is '1.0'")]
+    public string FFVersion { get; set; }
+
+    [Option("ffmpeg-url", 
+        Default = "https://ffmpeg.org/",
+        Required = false, 
+        HelpText = "FFmpeg URL. Default is 'https://ffmpeg.org/'")]
+    public string FFUrl { get; set; }
+
     public static CliOptions ParseArgumentsStrict(string[] args)
     {
         var result = CommandLine.Parser.Default.ParseArguments<CliOptions>(args);
